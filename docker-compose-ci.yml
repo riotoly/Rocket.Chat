@@ -25,7 +25,7 @@ services:
       - traefik
     labels:
       traefik.enable: true
-      traefik.http.services.rocketchat.loadbalancer.server.port: 3000
+      traefik.http.services.rocketchat.loadbalancer.server.port: 10000
       traefik.http.routers.rocketchat.service: rocketchat
       traefik.http.routers.rocketchat.rule: PathPrefix(`/`)
 
@@ -99,7 +99,7 @@ services:
       - traefik
     labels:
       traefik.enable: true
-      traefik.http.services.ddp-streamer-service.loadbalancer.server.port: 3000
+      traefik.http.services.ddp-streamer-service.loadbalancer.server.port: 10000
       traefik.http.routers.ddp-streamer-service.service: ddp-streamer-service
       traefik.http.routers.ddp-streamer-service.rule: PathPrefix(`/websocket`) || PathPrefix(`/sockjs`)
 
@@ -163,6 +163,6 @@ services:
     command:
       - --providers.docker=true
     ports:
-      - 3000:80
+      - 10000:80
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
